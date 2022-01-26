@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SampleProject.Domain.SeedWork
+namespace Cuhadar.Bank.Domain.SeedWork
 {
     public abstract class TypedIdValueBase : IEquatable<TypedIdValueBase>
     {
@@ -24,14 +24,14 @@ namespace SampleProject.Domain.SeedWork
 
         public bool Equals(TypedIdValueBase other)
         {
-            return this.Value == other.Value;
+            return Value == other.Value;
         }
 
         public static bool operator ==(TypedIdValueBase obj1, TypedIdValueBase obj2)
         {
-            if (object.Equals(obj1, null))
+            if (Equals(obj1, null))
             {
-                if (object.Equals(obj2, null))
+                if (Equals(obj2, null))
                 {
                     return true;
                 }
@@ -39,7 +39,7 @@ namespace SampleProject.Domain.SeedWork
             }
             return obj1.Equals(obj2);
         }
-        public static bool operator !=(TypedIdValueBase x, TypedIdValueBase y) 
+        public static bool operator !=(TypedIdValueBase x, TypedIdValueBase y)
         {
             return !(x == y);
         }

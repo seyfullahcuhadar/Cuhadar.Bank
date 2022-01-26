@@ -1,7 +1,7 @@
-﻿namespace SampleProject.Domain.SeedWork
+﻿namespace Cuhadar.Bank.Domain.SeedWork
 {
     public interface IAggregateRoot
     {
-        
+
     }
 }

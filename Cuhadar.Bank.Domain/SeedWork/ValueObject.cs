@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace SampleProject.Domain.SeedWork
+namespace Cuhadar.Bank.Domain.SeedWork
 {
     public abstract class ValueObject : IEquatable<ValueObject>
     {
@@ -12,9 +12,9 @@ namespace SampleProject.Domain.SeedWork
 
         public static bool operator ==(ValueObject obj1, ValueObject obj2)
         {
-            if (object.Equals(obj1, null))
+            if (Equals(obj1, null))
             {
-                if (object.Equals(obj2, null))
+                if (Equals(obj2, null))
                 {
                     return true;
                 }
@@ -43,19 +43,19 @@ namespace SampleProject.Domain.SeedWork
 
         private bool PropertiesAreEqual(object obj, PropertyInfo p)
         {
-            return object.Equals(p.GetValue(this, null), p.GetValue(obj, null));
+            return Equals(p.GetValue(this, null), p.GetValue(obj, null));
         }
 
         private bool FieldsAreEqual(object obj, FieldInfo f)
         {
-            return object.Equals(f.GetValue(this), f.GetValue(obj));
+            return Equals(f.GetValue(this), f.GetValue(obj));
         }
 
         private IEnumerable<PropertyInfo> GetProperties()
         {
-            if (this._properties == null)
+            if (_properties == null)
             {
-                this._properties = GetType()
+                _properties = GetType()
                     .GetProperties(BindingFlags.Instance | BindingFlags.Public)
                     .Where(p => p.GetCustomAttribute(typeof(IgnoreMemberAttribute)) == null)
                     .ToList();
@@ -64,19 +64,19 @@ namespace SampleProject.Domain.SeedWork
                 // !Attribute.IsDefined(p, typeof(IgnoreMemberAttribute))).ToList();
             }
 
-            return this._properties;
+            return _properties;
         }
 
         private IEnumerable<FieldInfo> GetFields()
         {
-            if (this._fields == null)
+            if (_fields == null)
             {
-                this._fields = GetType().GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
+                _fields = GetType().GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
                     .Where(p => p.GetCustomAttribute(typeof(IgnoreMemberAttribute)) == null)
                     .ToList();
             }
 
-            return this._fields;
+            return _fields;
         }
 
         public override int GetHashCode()

@@ -1,7 +1,7 @@
 ﻿using System;
 using MediatR;
 
-namespace SampleProject.Domain.SeedWork
+namespace Cuhadar.Bank.Domain.SeedWork
 {
     public interface IDomainEvent : INotification
     {

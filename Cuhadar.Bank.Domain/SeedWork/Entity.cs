@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SampleProject.Domain.SeedWork
+namespace Cuhadar.Bank.Domain.SeedWork
 {
     /// <summary>
     /// Base class for entities.
@@ -21,7 +21,7 @@ namespace SampleProject.Domain.SeedWork
         protected void AddDomainEvent(IDomainEvent domainEvent)
         {
             _domainEvents = _domainEvents ?? new List<IDomainEvent>();
-            this._domainEvents.Add(domainEvent);
+            _domainEvents.Add(domainEvent);
         }
 
         /// <summary>
