@@ -18,6 +18,7 @@ namespace Cuhadar.Bank.Infrastructure.Domain
 
         public async Task<int> CommitAsync(CancellationToken cancellationToken = default)
         {
+
             return await bankContext.SaveChangesAsync(cancellationToken);
         }
     }

@@ -4,7 +4,8 @@ using Cuhadar.Bank.Domain.SeedWork;
 using Cuhadar.Bank.Domain.Transactions;
 using Microsoft.EntityFrameworkCore;
 using System;
-
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Cuhadar.Bank.Infrastructure.Database
 {
@@ -21,7 +22,7 @@ namespace Cuhadar.Bank.Infrastructure.Database
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(BankContext).Assembly);
         }
 
-        public override int SaveChanges()
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
             foreach (var entityEntry in ChangeTracker.Entries()) // Iterate all made changes
             {
@@ -39,7 +40,7 @@ namespace Cuhadar.Bank.Infrastructure.Database
                     }
                 }
             }
-            return base.SaveChanges();
+            return base.SaveChangesAsync();
         }
 
     }
