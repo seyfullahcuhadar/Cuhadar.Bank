@@ -403,3 +403,5 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+
+./Cuhadar.Bank.API/Properties/service*
