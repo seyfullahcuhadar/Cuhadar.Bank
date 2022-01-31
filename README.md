@@ -11,13 +11,13 @@ The project requires Microsoft SQL Server and .net 5 and Visual Studio 2019+
 Please download .net 5 sdk from https://dotnet.microsoft.com/en-us/download/visual-studio-sdks
 
 1.If you want to run the project please change BankConnectionString field  at "projecturl/Cuhadar.Bank.API/appsettings.json"
-![This is an image](https://imgyukle.com/i/oFVtW6)
+https://imgyukle.com/i/oFVtW6
 
 2.Open Visual studio and open Package Manager Console
-![This is an image](https://imgyukle.com/i/oFnJpS)
+https://imgyukle.com/i/oFnJpS
 
 3.Choose Cuhadar.Bank.Infrastructure as Default Project and run these two Commands
-![This is an image](https://imgyukle.com/i/oFnqoH)
+https://imgyukle.com/i/oFnqoH
 
 Update-Database -Context BankContext
 Update-Database -Context AppIdentityDbContext
