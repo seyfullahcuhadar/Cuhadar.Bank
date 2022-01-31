@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Cuhadar.Bank.Domain.SeedWork
 {
@@ -7,8 +8,10 @@ namespace Cuhadar.Bank.Domain.SeedWork
     /// </summary>
     public abstract class Entity
     {
+        public Guid Id { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime ModifiedAt { get; set; }
         private List<IDomainEvent> _domainEvents;
-
         /// <summary>
         /// Domain events occurred.
         /// </summary>
@@ -39,5 +42,6 @@ namespace Cuhadar.Bank.Domain.SeedWork
                 throw new BusinessRuleValidationException(rule);
             }
         }
+
     }
 }
